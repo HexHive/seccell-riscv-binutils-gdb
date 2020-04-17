@@ -1753,6 +1753,12 @@ const struct riscv_opcode riscv_opcodes[] =
 {"hsv.w",       0, INSN_CLASS_I, "t,0(s)", MATCH_HSV_W, MASK_HSV_W, match_opcode, INSN_DREF|INSN_4_BYTE },
 {"hsv.d",      64, INSN_CLASS_I, "t,0(s)", MATCH_HSV_D, MASK_HSV_D, match_opcode, INSN_DREF|INSN_8_BYTE },
 
+/* Extensions for secure cells */
+/* name,     xlen, isa,   operands, match, mask, match_func, pinfo.  */
+{"jals",        0, INSN_CLASS_I, "d,a",    MATCH_JALS, MASK_JALS, match_opcode, INSN_JSR },
+{"jalrs",       0, INSN_CLASS_I, "d,o(s)", MATCH_JALRS, MASK_JALRS, match_opcode, INSN_JSR },
+// TODO: Add macros and aliases
+
 /* Terminate the list.  */
 {0, 0, INSN_CLASS_NONE, 0, 0, 0, 0, 0}
 };

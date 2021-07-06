@@ -1755,9 +1755,17 @@ const struct riscv_opcode riscv_opcodes[] =
 
 /* Extensions for secure cells */
 /* name,     xlen, isa,   operands, match, mask, match_func, pinfo.  */
-{"jals",        0, INSN_CLASS_I, "d,a",    MATCH_JALS, MASK_JALS, match_opcode, INSN_JSR },
-{"jalrs",       0, INSN_CLASS_I, "d,o(s)", MATCH_JALRS, MASK_JALRS, match_opcode, INSN_JSR },
-// TODO: Add macros and aliases
+{"js",        64, INSN_CLASS_I,  "d,j",    MATCH_JS, MASK_JS, match_opcode, INSN_JSR },
+{"jrs",       64, INSN_CLASS_I,  "d,o(s)", MATCH_JRS, MASK_JRS, match_opcode, INSN_JSR },
+{"jrs",       64, INSN_CLASS_I,  "d,s,j",  MATCH_JRS, MASK_JRS, match_opcode, INSN_JSR },
+{"jrs",       64, INSN_CLASS_I,  "d,s",    MATCH_JRS, MASK_JRS | MASK_IMM, match_opcode, INSN_ALIAS | INSN_JSR },
+{"entry",     64, INSN_CLASS_I,  "",       MATCH_ENTRY, MASK_ENTRY, match_opcode, 0 },
+{"inval",     64, INSN_CLASS_I,  "d",      MATCH_INVAL, MASK_INVAL, match_opcode, 0 },
+{"reval",     64, INSN_CLASS_I,  "d",      MATCH_REVAL, MASK_REVAL, match_opcode, 0 },
+{"grant",     64, INSN_CLASS_I,  "d,s,t",  MATCH_GRANT, MASK_GRANT, match_opcode, 0 },
+{"drop",      64, INSN_CLASS_I,  "d,s",    MATCH_DROP, MASK_DROP, match_opcode, 0 },
+{"tfer",      64, INSN_CLASS_I,  "d,s,t",  0, M_TFER, match_never, INSN_MACRO },
+{"count",     64, INSN_CLASS_I,  "d,s,t",  MATCH_COUNT, MASK_COUNT, match_opcode, 0 },
 
 /* Terminate the list.  */
 {0, 0, INSN_CLASS_NONE, 0, 0, 0, 0, 0}

@@ -1587,6 +1587,14 @@ riscv_call (int destreg, int tempreg, expressionS *ep,
   frag_new (0);
 }
 
+/* Transfer SecCell privileges */
+static void
+seccell_transfer (int addrreg, int idreg, int permreg)
+{
+  macro_build (NULL, "grant", "d,s,t", addrreg, idreg, permreg);
+  macro_build (NULL, "drop", "d,s", addrreg, permreg);
+}
+
 /* Load an integer constant into a register.  */
 
 static void
@@ -1885,6 +1893,10 @@ macro (struct riscv_cl_insn *ip, expressionS *imm_expr,
     case M_VMSGE:
     case M_VMSGEU:
       vector_macro (ip);
+      break;
+
+    case M_TFER:
+      seccell_transfer(rd, rs1, rs2);
       break;
 
     default:

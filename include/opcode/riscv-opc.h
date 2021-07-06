@@ -1987,6 +1987,23 @@
 #define MASK_VDOTUVV  0xfc00707f
 #define MATCH_VFDOTVV  0xe4001057
 #define MASK_VFDOTVV  0xfc00707f
+/* SecureCells instructions. */
+#define MATCH_JS 0xb
+#define MASK_JS  0xff07f
+#define MATCH_JRS 0x100b
+#define MASK_JRS  0x707f
+#define MATCH_ENTRY 0x200b
+#define MASK_ENTRY  0xffffffff
+#define MATCH_INVAL 0x8000300b
+#define MASK_INVAL  0xfffff07f
+#define MATCH_REVAL 0x300b
+#define MASK_REVAL  0xfffff07f
+#define MATCH_GRANT 0x8000400b
+#define MASK_GRANT  0xfe00707f
+#define MATCH_DROP 0x400b
+#define MASK_DROP  0xfff0707f
+#define MATCH_COUNT 0x500b
+#define MASK_COUNT  0xfe00707f
 /* Svinval instruction.  */
 #define MATCH_SINVAL_VMA 0x16000073
 #define MASK_SINVAL_VMA 0xfe007fff
@@ -2303,11 +2320,6 @@
 #define CSR_VL 0xc20
 #define CSR_VTYPE 0xc21
 #define CSR_VLENB 0xc22
-
-#define MATCH_JALS  0x0b
-#define MASK_JALS   0x7f
-#define MATCH_JALRS 0x2b
-#define MASK_JALRS  0x707f
 #endif /* RISCV_ENCODING_H */
 
 #ifdef DECLARE_INSN
@@ -2636,6 +2648,14 @@ DECLARE_INSN(hsv_b, MATCH_HSV_B, MASK_HSV_B)
 DECLARE_INSN(hsv_h, MATCH_HSV_H, MASK_HSV_H)
 DECLARE_INSN(hsv_w, MATCH_HSV_W, MASK_HSV_W)
 DECLARE_INSN(hsv_d, MATCH_HSV_D, MASK_HSV_D)
+DECLARE_INSN(js, MATCH_JS, MASK_JS)
+DECLARE_INSN(jrs, MATCH_JRS, MASK_JRS)
+DECLARE_INSN(entry, MATCH_ENTRY, MASK_ENTRY)
+DECLARE_INSN(inval, MATCH_INVAL, MASK_INVAL)
+DECLARE_INSN(reval, MATCH_REVAL, MASK_REVAL)
+DECLARE_INSN(grant, MATCH_GRANT, MASK_GRANT)
+DECLARE_INSN(drop, MATCH_DROP, MASK_DROP)
+DECLARE_INSN(count, MATCH_COUNT, MASK_COUNT)
 #endif /* DECLARE_INSN */
 #ifdef DECLARE_CSR
 /* Privileged CSRs.  */

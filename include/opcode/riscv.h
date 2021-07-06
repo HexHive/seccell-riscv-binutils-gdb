@@ -495,6 +495,7 @@ enum
   M_SEXTH,
   M_VMSGE,
   M_VMSGEU,
+  M_TFER,
   M_NUM_MACROS
 };
 

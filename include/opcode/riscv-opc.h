@@ -1989,19 +1989,19 @@
 #define MASK_VFDOTVV  0xfc00707f
 /* SecureCells instructions. */
 #define MATCH_JS 0xb
-#define MASK_JS  0xff07f
+#define MASK_JS  0x7fff
 #define MATCH_JRS 0x100b
 #define MASK_JRS  0x707f
 #define MATCH_ENTRY 0x200b
 #define MASK_ENTRY  0xffffffff
 #define MATCH_INVAL 0x8000300b
-#define MASK_INVAL  0xfffff07f
+#define MASK_INVAL  0xfff07fff
 #define MATCH_REVAL 0x300b
-#define MASK_REVAL  0xfffff07f
+#define MASK_REVAL  0xfe007fff
 #define MATCH_GRANT 0x8000400b
 #define MASK_GRANT  0xfe00707f
-#define MATCH_DROP 0x400b
-#define MASK_DROP  0xfff0707f
+#define MATCH_PROT 0x400b
+#define MASK_PROT  0xfe007fff
 #define MATCH_COUNT 0x500b
 #define MASK_COUNT  0xfe00707f
 /* Svinval instruction.  */
@@ -2654,7 +2654,7 @@ DECLARE_INSN(entry, MATCH_ENTRY, MASK_ENTRY)
 DECLARE_INSN(inval, MATCH_INVAL, MASK_INVAL)
 DECLARE_INSN(reval, MATCH_REVAL, MASK_REVAL)
 DECLARE_INSN(grant, MATCH_GRANT, MASK_GRANT)
-DECLARE_INSN(drop, MATCH_DROP, MASK_DROP)
+DECLARE_INSN(prot, MATCH_PROT, MASK_PROT)
 DECLARE_INSN(count, MATCH_COUNT, MASK_COUNT)
 #endif /* DECLARE_INSN */
 #ifdef DECLARE_CSR

@@ -314,6 +314,7 @@ static const char * const riscv_pred_succ[16] =
 
 /* ABI names for selected x-registers.  */
 
+#define X_ZERO 0
 #define X_RA 1
 #define X_SP 2
 #define X_GP 3

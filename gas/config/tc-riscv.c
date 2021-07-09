@@ -1592,7 +1592,7 @@ static void
 seccell_transfer (int addrreg, int idreg, int permreg)
 {
   macro_build (NULL, "grant", "d,s,t", addrreg, idreg, permreg);
-  macro_build (NULL, "drop", "d,s", addrreg, permreg);
+  macro_build (NULL, "prot", "s,t", addrreg, X_ZERO);
 }
 
 /* Load an integer constant into a register.  */

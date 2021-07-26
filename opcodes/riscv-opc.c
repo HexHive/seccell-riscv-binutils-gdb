@@ -114,6 +114,7 @@ const char * const riscv_vma[2] =
 #define MASK_IMM ENCODE_ITYPE_IMM (-1U)
 #define MASK_RVC_IMM ENCODE_CITYPE_IMM (-1U)
 #define MASK_UIMM ENCODE_UTYPE_IMM (-1U)
+#define MASK_SIMM ENCODE_STYPE_IMM (-1U)
 #define MASK_RM (OP_MASK_RM << OP_SH_RM)
 #define MASK_PRED (OP_MASK_PRED << OP_SH_PRED)
 #define MASK_SUCC (OP_MASK_SUCC << OP_SH_SUCC)
@@ -1756,15 +1757,15 @@ const struct riscv_opcode riscv_opcodes[] =
 /* Extensions for secure cells */
 /* name,     xlen, isa,   operands, match, mask, match_func, pinfo.  */
 {"js",        64, INSN_CLASS_I,  "s,j",    MATCH_JS, MASK_JS, match_opcode, INSN_JSR },
-{"jrs",       64, INSN_CLASS_I,  "d,o(s)", MATCH_JRS, MASK_JRS, match_opcode, INSN_JSR },
-{"jrs",       64, INSN_CLASS_I,  "d,s,j",  MATCH_JRS, MASK_JRS, match_opcode, INSN_JSR },
-{"jrs",       64, INSN_CLASS_I,  "d,s",    MATCH_JRS, MASK_JRS | MASK_IMM, match_opcode, INSN_ALIAS | INSN_JSR },
+{"jrs",       64, INSN_CLASS_I,  "s,q(t)", MATCH_JRS, MASK_JRS, match_opcode, INSN_JSR },
+{"jrs",       64, INSN_CLASS_I,  "s,t,q",  MATCH_JRS, MASK_JRS, match_opcode, INSN_JSR },
+{"jrs",       64, INSN_CLASS_I,  "s,t",    MATCH_JRS, MASK_JRS | MASK_SIMM, match_opcode, INSN_ALIAS | INSN_JSR },
 {"entry",     64, INSN_CLASS_I,  "",       MATCH_ENTRY, MASK_ENTRY, match_opcode, 0 },
 {"inval",     64, INSN_CLASS_I,  "s",      MATCH_INVAL, MASK_INVAL, match_opcode, 0 },
 {"reval",     64, INSN_CLASS_I,  "s,t",    MATCH_REVAL, MASK_REVAL, match_opcode, 0 },
-{"grant",     64, INSN_CLASS_I,  "d,s,t",  MATCH_GRANT, MASK_GRANT, match_opcode, 0 },
+{"grant",     64, INSN_CLASS_I,  "s,t,q",  MATCH_GRANT, MASK_GRANT, match_opcode, 0 },
 {"prot",      64, INSN_CLASS_I,  "s,t",    MATCH_PROT, MASK_PROT, match_opcode, 0 },
-{"tfer",      64, INSN_CLASS_I,  "d,s,t",  0, M_TFER, match_never, INSN_MACRO },
+{"tfer",      64, INSN_CLASS_I,  "s,t,q",  MATCH_TFER, MASK_TFER, match_opcode, 0 },
 {"count",     64, INSN_CLASS_I,  "d,s,t",  MATCH_COUNT, MASK_COUNT, match_opcode, 0 },
 
 /* Terminate the list.  */

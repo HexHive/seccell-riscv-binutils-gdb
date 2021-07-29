@@ -1756,10 +1756,11 @@ const struct riscv_opcode riscv_opcodes[] =
 
 /* Extensions for secure cells */
 /* name,     xlen, isa,   operands, match, mask, match_func, pinfo.  */
-{"js",        64, INSN_CLASS_I,  "s,j",    MATCH_JS, MASK_JS, match_opcode, INSN_JSR },
-{"jrs",       64, INSN_CLASS_I,  "s,q(t)", MATCH_JRS, MASK_JRS, match_opcode, INSN_JSR },
-{"jrs",       64, INSN_CLASS_I,  "s,t,q",  MATCH_JRS, MASK_JRS, match_opcode, INSN_JSR },
-{"jrs",       64, INSN_CLASS_I,  "s,t",    MATCH_JRS, MASK_JRS | MASK_SIMM, match_opcode, INSN_ALIAS | INSN_JSR },
+{"jals",      64, INSN_CLASS_I,  "d,a",    MATCH_JALS, MASK_JALS, match_opcode, INSN_JSR },
+{"js",        64, INSN_CLASS_I,  "d,a",    MATCH_JALS, MASK_JALS, match_opcode, INSN_ALIAS | INSN_JSR },
+{"jalrs",     64, INSN_CLASS_I,  "d,s,t",  MATCH_JALRS, MASK_JALRS, match_opcode, INSN_JSR },
+{"jalrs",     64, INSN_CLASS_I,  "s,t",    MATCH_JALRS | (X_RA << OP_SH_RD), MASK_JALRS | MASK_RD, match_opcode, INSN_ALIAS | INSN_JSR },
+{"jrs",       64, INSN_CLASS_I,  "s,t",    MATCH_JALRS, MASK_JALRS | MASK_RD, match_opcode, INSN_ALIAS | INSN_BRANCH },
 {"entry",     64, INSN_CLASS_I,  "",       MATCH_ENTRY, MASK_ENTRY, match_opcode, 0 },
 {"inval",     64, INSN_CLASS_I,  "s",      MATCH_INVAL, MASK_INVAL, match_opcode, 0 },
 {"reval",     64, INSN_CLASS_I,  "s,t",    MATCH_REVAL, MASK_REVAL, match_opcode, 0 },

@@ -1767,7 +1767,7 @@ const struct riscv_opcode riscv_opcodes[] =
 {"grant",     64, INSN_CLASS_I,  "s,t,q",  MATCH_GRANT, MASK_GRANT, match_opcode, 0 },
 {"prot",      64, INSN_CLASS_I,  "s,t",    MATCH_PROT, MASK_PROT, match_opcode, 0 },
 {"tfer",      64, INSN_CLASS_I,  "s,t,q",  MATCH_TFER, MASK_TFER, match_opcode, 0 },
-{"count",     64, INSN_CLASS_I,  "d,s,t",  MATCH_COUNT, MASK_COUNT, match_opcode, 0 },
+{"excl",      64, INSN_CLASS_I,  "d,s,t",  MATCH_EXCL, MASK_EXCL, match_opcode, 0 },
 
 /* Terminate the list.  */
 {0, 0, INSN_CLASS_NONE, 0, 0, 0, 0, 0}

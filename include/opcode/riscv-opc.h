@@ -1990,22 +1990,22 @@
 /* SecureCells instructions. */
 #define MATCH_JALS 0x2b
 #define MASK_JALS  0x7f
-#define MATCH_JALRS 0x100b
+#define MATCH_JALRS 0x0b
 #define MASK_JALRS  0xfe00707f
-#define MATCH_ENTRY 0x200b
+#define MATCH_ENTRY 0x100b
 #define MASK_ENTRY  0xffffffff
-#define MATCH_INVAL 0x8000300b
+#define MATCH_INVAL 0x8000200b
 #define MASK_INVAL  0xfff07fff
-#define MATCH_REVAL 0x300b
+#define MATCH_REVAL 0x200b
 #define MASK_REVAL  0xfe007fff
-#define MATCH_PROT 0x400b
+#define MATCH_PROT 0x300b
 #define MASK_PROT  0xfe007fff
-#define MATCH_GRANT 0x500b
+#define MATCH_GRANT 0x400b
 #define MASK_GRANT  0x707f
-#define MATCH_TFER 0x600b
+#define MATCH_TFER 0x500b
 #define MASK_TFER  0x707f
-#define MATCH_COUNT 0x700b
-#define MASK_COUNT  0xfe00707f
+#define MATCH_EXCL 0x700b
+#define MASK_EXCL  0xfe00707f
 /* Svinval instruction.  */
 #define MATCH_SINVAL_VMA 0x16000073
 #define MASK_SINVAL_VMA 0xfe007fff
@@ -2659,7 +2659,7 @@ DECLARE_INSN(reval, MATCH_REVAL, MASK_REVAL)
 DECLARE_INSN(prot, MATCH_PROT, MASK_PROT)
 DECLARE_INSN(grant, MATCH_GRANT, MASK_GRANT)
 DECLARE_INSN(tfer, MATCH_TFER, MASK_TFER)
-DECLARE_INSN(count, MATCH_COUNT, MASK_COUNT)
+DECLARE_INSN(count, MATCH_EXCL, MASK_EXCL)
 #endif /* DECLARE_INSN */
 #ifdef DECLARE_CSR
 /* Privileged CSRs.  */

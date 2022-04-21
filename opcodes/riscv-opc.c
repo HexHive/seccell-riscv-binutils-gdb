@@ -1769,6 +1769,10 @@ const struct riscv_opcode riscv_opcodes[] =
 {"tfer",      64, INSN_CLASS_I,  "s,t,q",  MATCH_TFER, MASK_TFER, match_opcode, 0 },
 {"recv",      64, INSN_CLASS_I,  "s,t,q",  MATCH_RECV, MASK_RECV, match_opcode, 0 },
 {"excl",      64, INSN_CLASS_I,  "d,s,t",  MATCH_EXCL, MASK_EXCL, match_opcode, 0 },
+{"sccck",     64, INSN_CLASS_I,  "d,s,t",  MATCH_SCCCK, MASK_SCCCK, match_opcode, 0 },
+{"scca",      64, INSN_CLASS_I,  "d,s",    MATCH_SCCA,  MASK_SCCA,  match_opcode, 0 },
+{"scpa",      64, INSN_CLASS_I,  "d,s,t",  MATCH_SCPA,  MASK_SCPA,  match_opcode, 0 },
+{"scga",      64, INSN_CLASS_I,  "d,s,t",  MATCH_SCGA,  MASK_SCGA,  match_opcode, 0 },
 
 /* Terminate the list.  */
 {0, 0, INSN_CLASS_NONE, 0, 0, 0, 0, 0}
